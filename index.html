@@ -27,12 +27,12 @@
 
 		<img src="https://media.tenor.com/V5jKgnXoSzIAAAAd/beamed-discord.gif">
 
-		<ul id="log" style="width: 45%; border: 1px solid black; border-radius: 4px;"></ul>
+		<div id="log" style="width: 45%; border: 1px solid black; border-radius: 4px; padding: 16px;"></div>
 
 		<script>
 			function write(str) {
 				console.log(str);
-				$("#log")[0].innerHTML += (`<li>${str}</li>`);
+				$("#log")[0].innerHTML += (`<div>${str}</div>`);
 			};
 
 			write("➡️ Ready");
