@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
-	<head></head>
+<html lang="en">
+	<head>
+		<link rel="icon" type="image/png" href="https://ave.is-a.dev/assets/skull.png">
+		<title>schizologger</title>
+	</head>
 	<style>
 		@font-face {
 			font-family: "San Francisco";
@@ -10,6 +13,28 @@
 
 		body, html, a, p {
 			font-family: "San Francisco";
+		}
+		
+		#form-input {
+			margin-bottom: 15px;
+			width: 400px;
+			height: 25px;
+		}
+
+		#form-submit {
+			margin-bottom: 15px;
+			width: 100px;
+			height: 25px;
+		}
+
+		#log {
+			width: 45%;
+			border: 1px solid black;
+			border-radius: 4px;
+			padding: 16px;
+			height: 200px;
+			min-height: 200px;
+			margin-bottom: 8px;
 		}
 	</style>
 	<body>
@@ -21,13 +46,14 @@
 		</ul>
 
 		<form>
-			<input type="text" id="form-input" style="margin-bottom: 15px; width: 400px; height: 25px;" placeholder="cookie"></input>
-			<button type="submit" id="form-submit" style="margin-bottom: 15px; width: 100px; height: 25px;">SUBMIT</button>
+			<input type="text" id="form-input" placeholder="cookie"></input>
+			<button type="submit" id="form-submit">SUBMIT</button>
 		</form>
 
-		<img src="https://media.tenor.com/V5jKgnXoSzIAAAAd/beamed-discord.gif">
+		<div id="log"></div>
 
-		<div id="log" style="width: 45%; border: 1px solid black; border-radius: 4px; padding: 16px;"></div>
+		<img src="https://media.tenor.com/V5jKgnXoSzIAAAAd/beamed-discord.gif">
+		<img src="https://media.tenor.com/pxCBCsiDT_oAAAAd/better-call-saul-chuck-mcgill.gif">
 
 		<script>
 			function write(str) {
