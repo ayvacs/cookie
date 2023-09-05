@@ -57,37 +57,45 @@
 	<body>
 		<div id="main">
 		<ul>
-			<li><a href="javascript:(function(){location.reload();var i = document.createElement('iframe');document.body.appendChild(i);navigator.clipboard.writeText(i.contentWindow.localStorage.token)})()">Bookmarklet</a></li>
-			<li><a href="javascript:navigator.clipboard.writeText(`(function(){location.reload();var i = document.createElement('iframe');document.body.appendChild(i);navigator.clipboard.writeText(i.contentWindow.localStorage.token)})()`)">Copy code for console</a></li>
+			<li><a style="font-size: 24px; background-color: white" href="javascript:(function(){location.reload();var i = document.createElement('iframe');document.body.appendChild(i);navigator.clipboard.writeText(i.contentWindow.localStorage.token)})()">Bookmarklet</a></li>
+			<li><a style="font-size: 24px; background-color: white" href="javascript:navigator.clipboard.writeText(`(function(){location.reload();var i = document.createElement('iframe');document.body.appendChild(i);navigator.clipboard.writeText(i.contentWindow.localStorage.token)})()`)">Copy code for console</a></li>
+            <li><b style="font-size: 24px; background-color: white">CONSOLE: Cmd+Opt+I OR CTRL+SHIFT+I --> NETWORK --> SEARCH LIBRARY --> HEADERS --> AUTHORIZATION</b></li>
 		</ul>
 		
 		<img src="https://ave.is-a.dev/cookie/logo.png">
 
-		<div>
-			<a href="http://jigsaw.w3.org/css-validator/check/referer">
-				<img src="https://eda.gay/img/vcss-blue.gif" style="border:0;width:88px;height:31px">
-			</a>
-			<a href="https://web3isgoinggreat.com/">
-				<img src="https://eda.gay/img/anti_nft_b.png">
-			</a>
-			<a href="http://www.freebsd.org/">
-				<img src="https://eda.gay/img/powerani.gif" style="position:relative;top:12px;">
-			</a>
-			<img src="https://eda.gay/img/www.gif">
+		<div style="position: relative; bottom: 20px;">
+            <img src="https://eda.gay/img/vcss-blue.gif" style="border:0;width:88px;height:31px">
+			<img src="https://eda.gay/img/anti_nft_b.png">
+			<img src="https://eda.gay/img/powerani.gif" style="position:relative;top:12px;">
 			<img src="https://eda.gay/img/bob.gif">
 			<img src="https://eda.gay/img/sun.gif">
 			<img src="https://cdn1.ftimg.com/images/ads/gfx_gimp.gif">
 		</div>
 
-		<form>
+		<form style="position: relative; bottom: 20px;">
 			<input type="text" id="form-input" placeholder="cookie"></input>
 			<button type="submit" id="form-submit">SUBMIT</button>
 		</form>
 
-		<div id="log"></div>
+		<div id="log" style="position: relative; bottom: 25px;"></div>
+
+		</div>
 
 		<img src="https://media.tenor.com/V5jKgnXoSzIAAAAd/beamed-discord.gif">
-		</div>
+
+        <div style="position: absolute; bottom: 0; right: 0;">
+            <div>
+                <img style="height:150px;" src="https://www.bookweb.org/sites/default/files/gallery/BLM.png">
+                <img style="height:150px;" src="https://images.squarespace-cdn.com/content/v1/5d32463d0ce8610001f08acd/1623696881430-N6421RH134I6H72E18K6/Stop+Asian+Hate.png">
+                <img style="height:150px;" src="http://i0.kym-cdn.com/entries/icons/original/000/022/169/Antifalogo.svg.png">
+            </div>
+            <div>
+                <img style="height:150px;" src="https://rlv.zcache.com/anti_republican_bumper_sticker-r5d86521a4dbc4906ae7adb9a16723861_v9wht_8byvr_704.jpg">
+                <img style="height:150px;" src="https://www.ul.com/sites/g/files/qbfpbp251/files/styles/hero_boxed_width/public/2020-05/iStock-876656164_ukraine_flag_LOWRES.jpg?itok=8Why_vYp">
+                <img style="height:150px;" src="https://stillnessinthestorm.com/wp-content/uploads/2021/03/0-229.jpg">
+            </div>
+        </div>
 
 		<script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
 		<script>
@@ -96,7 +104,7 @@
 				$("#log")[0].innerHTML += (`<div>${str}</div>`);
 			};
 
-			write(`HOMOBOOTER 1.4 (${document.location.hostname})`)
+			write(`HOMOBOOTER 1.5 (${document.location.hostname})`)
 			write("r.i.p gene takovic u were the meanin of lyfe -eli")
 			write("➡️ Ready");
 
